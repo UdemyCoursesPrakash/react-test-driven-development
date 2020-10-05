@@ -1,0 +1,25 @@
+.counter{
+    width: 100vw;
+    height: calc(100vh -30px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .counterContainer{
+        
+
+        .currCounter{
+             margin-bottom: 2rem;
+        }
+        .operations{
+            width: 100px;
+            display: flex;
+            justify-content: space-between;
+            span{
+                border: 1px solid gray;
+                background-color: rgb(196, 182, 182);
+                padding: 0.15rem 0.25rem;
+                cursor: pointer;
+            }
+        }
+    }
+}

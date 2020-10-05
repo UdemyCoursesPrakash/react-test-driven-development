@@ -1,11 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Route , Switch} from 'react-router-dom';
 import './App.css';
+import Home from './Components/Home/Home';
+import Calculator from './Containers/Calculator/calculator';
+import Counter from './Containers/Counter/Counter';
+import Header from './Containers/Header/Header';
 
 function App() {
   return (
     <div className="App">
-      react
+      <Router>
+        <Header />
+        <div className="mainContent">
+          <Switch>
+            <Route path="/counter" component={Counter} />
+            <Route path="/calculator" component={Calculator} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }

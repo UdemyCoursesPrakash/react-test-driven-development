@@ -1,0 +1,14 @@
+.navbar{
+    height: 30px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: rgb(159, 165, 165);
+    ul{
+        display: flex;
+        align-items: center;
+        li{
+            margin-left: 20px;
+        }
+    }
+}
