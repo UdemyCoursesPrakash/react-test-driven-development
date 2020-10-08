@@ -47,6 +47,10 @@ describe('Initial value',()=>{
     it('should have initial value as 0',()=>{
         const {wrapper} = setup();
         expect(wrapper.find('[data-test="current-value"]').text()).toBe("0");
+
+        // we can directly test states initial value
+        expect(wrapper.state('counter')).toBe(0);
+        expect(wrapper.instance().state['counter']).toBe(0);
     })
 })
 
