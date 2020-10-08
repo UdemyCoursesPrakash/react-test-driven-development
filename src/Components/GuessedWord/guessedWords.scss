@@ -1,0 +1,18 @@
+.guessedWords{
+    table{
+        margin: auto;
+        thead{
+            background-color: gray;
+        }
+        tbody{
+            tr{
+                &:nth-child(even){
+                    background-color: lightgrey;
+                }
+                &:nth-child(odd){
+                    background-color: lightskyblue  ;
+                }
+            }
+        }
+    }
+}
