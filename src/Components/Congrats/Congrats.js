@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import classes from './Congrats.module.scss';
 
 function congrats(props) {
     if(props.success){
         return (
             <div data-test="congrats">
-                <h1>Congratulations you have guessed word.</h1>
+                <h4 className={classes.congrats}>Congratulations you have guessed word.</h4>
             </div>
         )
     }else{

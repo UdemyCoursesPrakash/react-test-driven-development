@@ -5,6 +5,7 @@ import Home from './Components/Home/Home';
 import Calculator from './Containers/Calculator/calculator';
 import Counter from './Containers/Counter/Counter';
 import Header from './Containers/Header/Header';
+import WordGame from './Containers/WordGame/wordGame';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Switch>
             <Route path="/counter" component={Counter} />
             <Route path="/calculator" component={Calculator} />
+            <Route path="/word-game" component={WordGame} />
             <Route path="/" component={Home} />
           </Switch>
         </div>
