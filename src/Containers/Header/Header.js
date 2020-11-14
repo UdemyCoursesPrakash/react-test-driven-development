@@ -12,6 +12,7 @@ export default class Header extends Component {
                         <li><Link to="/">Home</Link></li>
                         <li> <Link to="/counter">Counter</Link></li>
                         <li> <Link to="/calculator">Calculator</Link></li>
+                        <li><Link to="/mock">Mock</Link></li>
                         <li> <Link to="/word-game">Word Game</Link></li>
                     </ul>
                 </nav>
