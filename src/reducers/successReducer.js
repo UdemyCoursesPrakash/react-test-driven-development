@@ -1,7 +1,10 @@
-const initialState = {
-    success : false
-}
+const initialState = false;
 
 export const successReducer = (state = initialState , action) =>{
-    return state
+    switch(action.type){
+        case 'CORRECT_GUESS':
+            return true;
+        default:
+            return state;
+    }
 }
