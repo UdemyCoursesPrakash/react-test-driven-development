@@ -11,7 +11,6 @@ const setup = (initialState = {}) =>{
     return wrapper;
 }
 
-setup();
 
 describe('render',()=>{
     describe('word has not been guessed successgully',()=>{
@@ -53,6 +52,17 @@ describe('render',()=>{
         })
     })
 })
-describe('update',()=>{
+describe('test redux props',()=>{
+    it('should have "success" props received from redux',()=>{
+        const success = true;
+        const wrapper  = setup({success});
+        const successProp = wrapper.instance().props.success;
+        expect(successProp).toBe(success);
+    })
 
+    it('should have "guessWord" props as function',()=>{
+        const wrapper = setup();
+        const guessWordProp = wrapper.instance().props.guessWord;
+        expect(guessWordProp).toBeInstanceOf(Function);
+    })
 })

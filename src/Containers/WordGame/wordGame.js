@@ -21,7 +21,7 @@ export default class wordGame extends Component {
         return (
             <div>
                 <h2>Word Game</h2>
-                <Congrats success={true} />
+                <Congrats success={false} />
                 <GuessedWord guessedWords = {this.guessedWords}/>
             </div>
         )
