@@ -1,7 +1,9 @@
-import { createStore } from 'redux';
-
+import { createStore , applyMiddleware} from 'redux';
+import { middlewares } from '../store';
 import reducers from '../reducers';
 
 export const storeFactory = (initialState = {}) =>{
-    return createStore(reducers , initialState)
+    const createStoreWithMiddlewares = applyMiddleware(...middlewares)(createStore);
+    return createStoreWithMiddlewares(reducers , initialState)
+    // return createStore(reducers , initialState) // This is old one without middlewares
 }
