@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import GuessWordInput from './guessWordInput';
+import GuessWordInput , { UnConnectedGuessWordInput } from './guessWordInput';
 import { storeFactory } from '../../storeFactory/storeFactory';
 
 
@@ -65,4 +65,22 @@ describe('test redux props',()=>{
         const guessWordProp = wrapper.instance().props.guessWord;
         expect(guessWordProp).toBeInstanceOf(Function);
     })
+
+    describe('redux unconnected component',()=>{
+        const guessWordMock = jest.fn();
+        let wrapper;
+        beforeEach(()=>{
+            wrapper = shallow(<UnConnectedGuessWordInput guessWord={guessWordMock} />);
+        })
+        it('should call guessWord action creator when submit button is clicked',()=>{
+            wrapper.find(`[data-test='submit-button']`).simulate('click');
+            expect(guessWordMock.mock.calls.length).toBe(1);    
+        })
+        it('should call guessWord action creator when submit button is clicked',()=>{
+            wrapper.find(`[data-test='submit-button']`).simulate('click','testWord');
+            expect(guessWordMock).toHaveBeenCalledWith('testWord');
+            expect(guessWordMock.mock.calls[0][0]).toBe('testWord');    
+        })
+    })
+
 })

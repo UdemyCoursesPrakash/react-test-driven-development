@@ -1,7 +1,6 @@
 import React,{ Component } from 'react';
 import {connect} from 'react-redux';
 import {BrowserRouter as Router, Route , Switch} from 'react-router-dom';
-import { guessWord } from './actions';
 import './App.css';
 import Home from './Components/Home/Home';
 import Calculator from './Containers/Calculator/calculator';
@@ -31,14 +30,5 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state =>({
-  success : state.success,
-  guessedWords : state.guessedWords,
-  secretWord : state.secretWord
-})
 
-const mapDispatchToProps = dispatch =>({
-  guessWord : () => guessWord()
-})
-
-export default connect(mapStateToProps , mapDispatchToProps)(App);
+export default App;
