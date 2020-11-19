@@ -29,7 +29,7 @@ const mapStateToProps = state =>({
   })
   
   const mapDispatchToProps = dispatch =>({
-    getSecretWord : () => getSecretWord()
+    getSecretWord : () => dispatch(getSecretWord())
   }) 
 
 //   export default connect(mapStateToProps , mapDispatchToProps)(WordGame);

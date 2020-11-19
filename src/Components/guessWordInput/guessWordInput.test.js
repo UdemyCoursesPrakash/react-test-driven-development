@@ -69,18 +69,40 @@ describe('test redux props',()=>{
     describe('redux unconnected component',()=>{
         const guessWordMock = jest.fn();
         let wrapper;
+        const gussedWord = 'gussedWord';
         beforeEach(()=>{
             wrapper = shallow(<UnConnectedGuessWordInput guessWord={guessWordMock} />);
+            wrapper.setState({currentGuess : gussedWord});
         })
         it('should call guessWord action creator when submit button is clicked',()=>{
             wrapper.find(`[data-test='submit-button']`).simulate('click');
             expect(guessWordMock.mock.calls.length).toBe(1);    
         })
         it('should call guessWord action creator when submit button is clicked',()=>{
-            wrapper.find(`[data-test='submit-button']`).simulate('click','testWord');
-            expect(guessWordMock).toHaveBeenCalledWith('testWord');
-            expect(guessWordMock.mock.calls[0][0]).toBe('testWord');    
+            wrapper.find(`[data-test='submit-button']`).simulate('click');
+            expect(guessWordMock).toHaveBeenCalledWith(gussedWord);
+            expect(guessWordMock.mock.calls[0][0]).toBe(gussedWord);    
         })
+        test('it should clear input box once submit is clicked',()=>{
+            wrapper.find(`[data-test='submit-button']`).simulate('click');
+            const currGuess = wrapper.instance().state['currentGuess'];
+            expect(currGuess.length).toBe(0);
+        })
+
+        test('submit button should be disabled if no text is entered',()=>{
+            wrapper.setState({
+                currentGuess : ''
+            })
+           expect(wrapper.find(`[data-test='submit-button']`).props().disabled).toBe(false);
+        })
+
+        test('submit button should be disabled if no text is entered',()=>{
+            wrapper.setState({
+                currentGuess : 'test'
+            })
+           expect(wrapper.find(`[data-test='submit-button']`).props().disabled).toBe(true);
+        })
+
     })
 
 })

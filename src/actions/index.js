@@ -27,6 +27,7 @@ export const asyncCorrectGuess = (status) => (dispatch , getState) =>{
 export const guessWord = (guessedWord) => (dispacth , getState) =>{
     const secretWord = getState().secretWord;
     const letterMatchCount = getLetterMatchCount(secretWord ,guessedWord);
+    
     dispacth({
         type : actionTypes.GUESSED_WORD,
         payload : {guessedWord , letterMatchCount}
@@ -40,12 +41,12 @@ export const guessWord = (guessedWord) => (dispacth , getState) =>{
 }
 
 export const getSecretWord = () => (dispatch , getState) =>{
-    return axios.get('../../public/api.json')
+    return axios.get('api.json')
    .then((res)=>{
        console.log(res.data);
      dispatch({
          type : actionTypes.SET_SECRET_WORD,
-         payload : res.data
+         payload : res.data.secretWord
      })
    }).catch((err)=>{
      console.log(err);
