@@ -25,7 +25,7 @@ export class UnConnectedGuessWordInput extends Component {
         (
             <div>
                 <input data-test='input-box' value={this.state.currentGuess} onChange={(event) => this.setState({currentGuess : event.target.value})} type="text" />
-                <input data-test='submit-button' disabled = {!!this.state.currentGuess.length} type="submit" onClick={this.handleSubmit} value="Submit" />                
+                <input data-test='submit-button' disabled = {!(!!this.state.currentGuess.length)} type="submit" onClick={this.handleSubmit} value="Submit" />                
             </div>
         )
         return (

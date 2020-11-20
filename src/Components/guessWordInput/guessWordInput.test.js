@@ -93,14 +93,14 @@ describe('test redux props',()=>{
             wrapper.setState({
                 currentGuess : ''
             })
-           expect(wrapper.find(`[data-test='submit-button']`).props().disabled).toBe(false);
+           expect(wrapper.find(`[data-test='submit-button']`).props().disabled).toBe(true);
         })
 
         test('submit button should be disabled if no text is entered',()=>{
             wrapper.setState({
                 currentGuess : 'test'
             })
-           expect(wrapper.find(`[data-test='submit-button']`).props().disabled).toBe(true);
+           expect(wrapper.find(`[data-test='submit-button']`).props().disabled).toBe(false);
         })
 
     })
